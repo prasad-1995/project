@@ -113,8 +113,11 @@ def register(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    # clients = Client.objects.all()
-    return render(request, 'home.html')
+    clients = Client.objects.all()
+    data = {
+        'cl': clients
+    }
+    return render(request, 'dashboard.html', data)
     # return render(request, 'home.html', data)
 
 
